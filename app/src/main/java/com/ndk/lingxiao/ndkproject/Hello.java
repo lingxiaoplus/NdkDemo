@@ -3,6 +3,8 @@ package com.ndk.lingxiao.ndkproject;
 import android.util.Log;
 
 public class Hello {
+    public String name = "im is java";
+    public static int age = 11;
     static {
         System.loadLibrary("native-lib");
     }
@@ -15,10 +17,19 @@ public class Hello {
     public static void staticMethod(String data){
         logMessage(data);
     }
-    public static native void callStaticMethod(int i);
-    public static native void callStaticMethod(long i,String str);
 
-    public  native void callInstanceMethod(int i);
-    public  native void callInstanceMethod(String str,long i);
+    public void instanceMethod(String data){
+        logMessage(data);
+    }
+
+    public native void callInstanceMethod(int i);
+    public static native void callStaticMethod(int i);
+
+
+    public native void callJavaStaticMethod();
+    public native void callJavaInstanceMethod();
+
+    public native void changeField();
+    public native void changeStaticField();
 
 }
